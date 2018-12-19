@@ -170,6 +170,8 @@ class CapitalT(object):
         #   and *** NO OTHER INSTANCE VARIABLES. ***
         #   Note: Implement   attach_to   before testing this __init__ method.
         # ---------------------------------------------------------------------
+        self.ic = intersection_center
+
         self.h_start = rg.Point(intersection_center.x - (width / 2), intersection_center.y - (letter_thickness / 2))
         self.h_end = rg.Point(intersection_center.x + (width / 2), intersection_center.y + (letter_thickness / 2))
         self.h_rect = rg.Rectangle(self.h_start, self.h_end)
@@ -326,7 +328,9 @@ class CapitalT(object):
         # variables beyond  h_rect  and  v_rect, at any point of this exercise.
         #######################################################################
 
-
+        t = CapitalT(self.h_rect.get_center(), self.h_rect.get_width(),self.v_rect.get_height(),self.h_rect.get_height())
+        t.set_colors(self.v_rect.fill_color,self.v_rect.outline_color)
+        return t
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
